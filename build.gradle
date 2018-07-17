@@ -1,0 +1,64 @@
+buildscript {
+    ext.kotlinVersion = '1.2.51'
+
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.gradle.publish:plugin-publish-plugin:0.9.10'
+    }
+}
+
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'kotlin'
+apply plugin: 'com.gradle.plugin-publish'
+
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+}
+
+group = 'com.beat.localization'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation gradleApi()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/'
+}
+
+gradlePlugin {
+    plugins {
+        downloadLocalizationsPlugin {
+            id = "com.beat.localization"
+            implementationClass = "com.beat.localization.DownloadLocalizationsPlugin"
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://..'
+    vcsUrl = 'https://...'
+    description = 'Description here'
+    tags = ['to', 'be', 'determined']
+
+    plugins {
+        downloadLocalizationsPlugin {
+            id = 'com.beat.localization'
+            displayName = 'Quality Checks Plugin'
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8'
+    distributionType = Wrapper.DistributionType.ALL
+}
