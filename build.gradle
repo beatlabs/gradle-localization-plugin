@@ -53,7 +53,7 @@ pluginBundle {
     plugins {
         downloadLocalizationsPlugin {
             id = 'com.beat.localization'
-            displayName = 'Quality Checks Plugin'
+            displayName = 'Localization Download Plugin'
         }
     }
 }
