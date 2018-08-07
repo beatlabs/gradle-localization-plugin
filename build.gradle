@@ -24,7 +24,7 @@ repositories {
 }
 
 group = 'com.beat.localization'
-version = '0.0.1-SNAPSHOT'
+version = '0.3.0'
 
 dependencies {
     implementation gradleApi()
