@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit
  */
 open class TransifexLocalizationExtension : LocalizationExtension {
     lateinit var auth: String
-    lateinit var resource: String
+    lateinit var resourceSlug: String
     lateinit var localesMap: Map<String, String>
     lateinit var srcDir: String
+    lateinit var projectSlug: String
 
     override fun execute() {
         System.out.println("Locales available:")
@@ -21,7 +22,7 @@ open class TransifexLocalizationExtension : LocalizationExtension {
         localesMap.forEach { folder, locale ->
             System.out.println("Locale map: $folder - $locale")
             val requestUrl = "https://www.transifex.com/api/2/" +
-                    "project/AndroidApp/resource/$resource/translation/$locale?mode=default&file=xml"
+                    "project/$projectSlug/resourceSlug/$resourceSlug/translation/$locale?mode=default&file=xml"
             println("Downloading: $locale")
 
             val process = ProcessBuilder(
