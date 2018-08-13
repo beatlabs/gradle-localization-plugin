@@ -22,7 +22,7 @@ open class TransifexLocalizationExtension : LocalizationExtension {
         localesMap.forEach { folder, locale ->
             System.out.println("Locale map: $folder - $locale")
             val requestUrl = "https://www.transifex.com/api/2/" +
-                    "project/$projectSlug/resourceSlug/$resourceSlug/translation/$locale?mode=default&file=xml"
+                    "project/$projectSlug/resource/$resourceSlug/translation/$locale?mode=default&file=xml"
             println("Downloading: $locale")
 
             val process = ProcessBuilder(
