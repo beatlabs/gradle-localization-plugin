@@ -14,22 +14,23 @@ buildScript {
     }
     dependencies {
     // replace 0.0.1-SNAPSHOT with your plugin version
-    classpath "com.beat.localization:gradle-localization-plugin:0.0.1-SNAPSHOT"
+    classpath "co.thebeat.localization:gradle-localization-plugin:0.0.1-SNAPSHOT"
     }
 }
 
 ```
 - Add this configuration in your `app` `build.gradle` file (does not need to be inside another closure)
 ```
-apply plugin: "com.beat.localization"
+apply plugin: "co.thebeat.localization"
 
 transifexLocalization {
-    auth = 'api-key'
-    resource = 'android-driver|android-passenger'
+    auth = 'your-api-key'
+    resourceSlug = 'your-resource-path-here'
+    projectSlug = 'your-project-name-here'
     localesMap = [:]
+    // example localization matchings
     localesMap['main/res/values'] = 'en'
     localesMap['greece/res/values'] = 'el_GR'
-    localesMap['peru/res/values'] = 'es_MX'
     localesMap['colombia/res/values'] = 'es_CO'
     localesMap['chile/res/values'] = 'es_CL'
     srcDir = "${projectDir}/src"
