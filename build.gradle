@@ -23,8 +23,8 @@ repositories {
     jcenter()
 }
 
-group = 'com.beat.localization'
-version = '0.3.3'
+group = 'co.thebeat.localization'
+version = '0.3.4'
 
 dependencies {
     implementation gradleApi()
@@ -38,8 +38,8 @@ sourceSets {
 gradlePlugin {
     plugins {
         downloadLocalizationsPlugin {
-            id = "com.beat.localization"
-            implementationClass = "com.beat.localization.DownloadLocalizationsPlugin"
+            id = "co.thebeat.localization"
+            implementationClass = "co.thebeat.localization.DownloadLocalizationsPlugin"
         }
     }
 }
@@ -52,7 +52,7 @@ pluginBundle {
 
     plugins {
         downloadLocalizationsPlugin {
-            id = 'com.beat.localization'
+            id = 'co.thebeat.localization'
             displayName = 'Localization Download Plugin'
         }
     }

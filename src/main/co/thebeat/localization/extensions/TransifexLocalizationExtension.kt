@@ -1,6 +1,6 @@
-package com.beat.localization.extensions
+package co.thebeat.localization.extensions
 
-import com.beat.localization.LocalizationExtension
+import co.thebeat.localization.LocalizationExtension
 import org.gradle.api.GradleException
 import java.io.File
 import java.util.concurrent.TimeUnit

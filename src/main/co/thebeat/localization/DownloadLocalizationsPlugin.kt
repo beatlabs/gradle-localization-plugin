@@ -1,6 +1,6 @@
-package com.beat.localization
+package co.thebeat.localization
 
-import com.beat.localization.extensions.TransifexLocalizationExtension
+import co.thebeat.localization.extensions.TransifexLocalizationExtension
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
