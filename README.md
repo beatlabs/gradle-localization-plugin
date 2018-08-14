@@ -18,10 +18,11 @@ buildScript {
     }
 }
 
-apply plugin: "com.beat.localization"
 ```
 - Add this configuration in your `app` `build.gradle` file (does not need to be inside another closure)
 ```
+apply plugin: "com.beat.localization"
+
 transifexLocalization {
     auth = 'api-key'
     resource = 'android-driver|android-passenger'
