@@ -35,7 +35,7 @@ open class TransifexLocalizationExtension : LocalizationExtension {
                 // We need to use the 4-space indentation because the file is usually changed by humans
                 // That makes the git diff inspection easier
                 val content = text.replace(
-                    "\\n(\\s+)((<string.+</string>)|<!--.+-->)",
+                    """\n(\s+)((<string.+</string>)|<!--.+-->)""".toRegex(),
                     "\n    \$2"
                 )
                 filesMap[folder] = content

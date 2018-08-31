@@ -1,5 +1,6 @@
 buildscript {
     ext.kotlinVersion = '1.2.60'
+    ext.junitVersion = "5.2.0"
 
     repositories {
         mavenCentral()
@@ -24,11 +25,14 @@ repositories {
 }
 
 group = 'co.thebeat.localization'
-version = '0.3.4'
+version = '0.3.5'
 
 dependencies {
     implementation gradleApi()
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 sourceSets {
@@ -55,6 +59,18 @@ pluginBundle {
             id = 'co.thebeat.localization'
             displayName = 'Localization Download Plugin'
         }
+    }
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    reports {
+        html.enabled = true
     }
 }
 
