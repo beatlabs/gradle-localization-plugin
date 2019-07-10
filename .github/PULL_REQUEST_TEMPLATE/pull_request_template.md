@@ -1,6 +1,13 @@
+---
+name: Generic Pull Request
+about: Submit an implementation for a specific issue
+
+---
+
+
 | Related Links |
 | :--- |
-| [Linked Issue](https://jira.taxibeat.com/browse/) |
+| [Helpful Link](https://google.com) |
 
  # Description
  _Provide an overview of the changes to be found in this PR_
