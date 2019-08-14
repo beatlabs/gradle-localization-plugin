@@ -1,10 +1,10 @@
-# gradle-localization-plugin
-Gradle plugin for automation regarding strings download in Android apps
+## gradle-localization-plugin
+Gradle plugin for automation regarding string downloading in Android apps
 
-# Instructions
+## Instructions
 
 - Get the jar (or build it by running `gradlew clean build jar`)
-- Place it in the `{project_dir/libs/}` fodler
+- Place it in the `{project_dir/libs/}` folder
 - Add this in the project's `build.gradle`
 ```
 buildScript {
@@ -37,3 +37,7 @@ transifexLocalization {
 }
 ```
 - Execute `./gradlew fetchLocalization`
+
+## Contributing
+
+Please consult the [Contribution guidelines](CONTRIBUTE.md).
