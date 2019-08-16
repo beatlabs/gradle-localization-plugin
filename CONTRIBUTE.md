@@ -7,9 +7,9 @@
 3. **Curators**: After the discussion mentioned above, it will be determined if the proposed change
    should proceed or not (adding appropriate labels if necessary).
 4. **Contributor**: 
-    - assigns the issue to herself/himself
+    - assigns the issue to themselves
     - creates a fork
-    - git clone the fork on her/his machine
+    - git clone the fork on their machine
     - opens a PR. use WIP label to mark unfinished work
     - after development has finished remove the _WIP_ label and add _READY FOR REVIEW_
 5. **Curators**: The curators will conduct a code review
