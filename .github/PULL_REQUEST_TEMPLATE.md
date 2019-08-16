@@ -1,10 +1,3 @@
----
-name: Generic Pull Request
-about: Submit an implementation for a specific issue
-
----
-
-
 | Related Links |
 | :--- |
 | [Helpful Link](https://google.com) |
