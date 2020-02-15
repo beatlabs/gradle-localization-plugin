@@ -16,7 +16,7 @@ repositories {
 }
 
 group = "co.thebeat.localization"
-version = "0.5.0"
+version = "0.3.6"
 
 dependencies {
     implementation(gradleApi())
