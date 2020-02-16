@@ -11,9 +11,9 @@ transifexLocalization {
     resourceSlug = resource
     projectSlug = projectSlugConfig
 
-    localesMap = HashMap<String, String>().also {
-        it["main/res/localization_en"] = "en"
-        it["main/res/localization_gr"] = "el_GR"
+    localesMap = HashMap<String, String>().apply {
+        this["main/res/localization_en"] = "en"
+        this["main/res/localization_gr"] = "el_GR"
     }
     srcDir = "${projectDir}/src"
 }
