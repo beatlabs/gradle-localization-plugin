@@ -3,7 +3,7 @@ Gradle plugin for automation regarding string downloading in Android apps
 
 ## Instructions
 
-- Get the jar (or build it by running `gradlew clean build jar`)
+- Get the jar (or build it by running `cd localization-plugin; ./gradlew clean build jar`)
 - Place it in the `{project_dir/libs/}` folder
 - Add this in the project's `build.gradle`
 ```
