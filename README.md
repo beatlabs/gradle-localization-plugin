@@ -40,4 +40,4 @@ transifexLocalization {
 
 ## Contributing
 
-Please consult the [Contribution guidelines](CONTRIBUTE.md).
+Please consult the [Contribution guidelines](CONTRIBUTING.md).
