@@ -16,6 +16,11 @@ jobs:
       - name: Grant execute permission for consumer gradlew
         run: chmod +x ./test-consumer/gradlew
       - name: Build Localization Plugin
-        run: ./localization-plugin/gradlew build
+        run: ./localization-plugin/gradlew build jar
       - name: Build Consumer
         run: ./test-consumer/gradlew build
+      - name: Upload artifacts
+          uses: actions/upload-artifact@v1
+          with:
+            name: jar
+            path: ./localization-plugin/build/libs/*.jar
