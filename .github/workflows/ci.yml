@@ -20,7 +20,7 @@ jobs:
       - name: Build Consumer
         run: ./test-consumer/gradlew build
       - name: Upload artifacts
-          uses: actions/upload-artifact@v1
-          with:
-            name: jar
-            path: ./localization-plugin/build/libs/*.jar
+        uses: actions/upload-artifact@v1
+        with:
+          name: jar
+          path: ./localization-plugin/build/libs/*.jar
