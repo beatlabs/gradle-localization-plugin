@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: jar
-          path: ./localization-plugin/build/libs/*.jar
+          path: ./localization-plugin/build/libs/
