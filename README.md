@@ -1,4 +1,6 @@
 ## gradle-localization-plugin
+![Continuous Integration](https://github.com/beatlabs/gradle-localization-plugin/workflows/Continuous%20Integration/badge.svg?branch=develop)
+
 Gradle plugin for automation regarding string downloading in Android apps
 
 ## Instructions
