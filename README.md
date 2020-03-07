@@ -1,7 +1,8 @@
 ## gradle-localization-plugin
 ![Continuous Integration](https://github.com/beatlabs/gradle-localization-plugin/workflows/Continuous%20Integration/badge.svg?branch=develop)
 
-Gradle plugin for automation regarding string downloading in Android apps
+Gradle plugin for automation regarding string downloading in Android apps.
+The plugin in its current state has been integrated with Transifex and uses [Transifex API v2](https://docs.transifex.com/api/introduction).
 
 ## Instructions
 
