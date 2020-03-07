@@ -30,7 +30,16 @@ gradlePlugin {
     plugins {
         create("downloadLocalizationsPlugin") {
             id = "co.thebeat.localization"
+            displayName = "Download localization files plugin"
+            description = "Interact with localization providers (such as Transifex) and automate downloading " +
+                    "localized files (such as string.xml for android applications)."
             implementationClass = "co.thebeat.localization.DownloadLocalizationsPlugin"
         }
     }
+}
+
+pluginBundle {
+    website = "https://github.com/beatlabs/gradle-localization-plugin"
+    vcsUrl = "https://github.com/beatlabs/gradle-localization-plugin"
+    tags = listOf("localization", "transifex", "android")
 }
