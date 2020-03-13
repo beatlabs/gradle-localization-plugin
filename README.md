@@ -1,28 +1,44 @@
 ## gradle-localization-plugin
-Gradle plugin for automation regarding string downloading in Android apps
+![Continuous Integration](https://github.com/beatlabs/gradle-localization-plugin/workflows/Continuous%20Integration/badge.svg?branch=develop)
+
+Gradle plugin for automation regarding string downloading in Android apps.
+The plugin in its current state has been integrated with Transifex and uses [Transifex API v2](https://docs.transifex.com/api/introduction).
 
 ## Instructions
 
-- Get the jar (or build it by running `gradlew clean build jar`)
-- Place it in the `{project_dir/libs/}` folder
-- Add this in the project's `build.gradle`
+### Apply the plugin
+
+Using [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block)
 ```
-buildScript {
-  repositories {
-        //...
-        flatDir { dirs 'libs' }
-    }
-    dependencies {
-    // replace 0.0.1-SNAPSHOT with your plugin version
-    classpath "co.thebeat.localization:gradle-localization-plugin:0.0.1-SNAPSHOT"
-    }
+plugins {
+  id "co.thebeat.localization" version "<version>"
 }
 
 ```
-- Add this configuration in your `app` `build.gradle` file (does not need to be inside another closure)
-```
-apply plugin: "co.thebeat.localization"
 
+Using [legacy plugin application](https://docs.gradle.org/current/userguide/plugins.html#sec:old_plugin_application)
+```
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.co.thebeat.localization:localization-plugin:<version>"
+  }
+}
+
+apply plugin: "co.thebeat.localization"
+```
+
+### Configuring the plugin
+
+Add this configuration in your `app` `build.gradle` file (does not need to be inside another closure)
+
+**groovy**:
+
+```groovy
 transifexLocalization {
     auth = 'your-api-key'
     resourceSlug = 'your-resource-path-here'
@@ -33,6 +49,24 @@ transifexLocalization {
     localesMap['greece/res/values'] = 'el_GR'
     localesMap['colombia/res/values'] = 'es_CO'
     localesMap['chile/res/values'] = 'es_CL'
+    srcDir = "${projectDir}/src"
+}
+```
+
+**gradle kotlin dsl**:
+
+```kotlin
+transifexLocalization {
+    auth = "your-api-key"
+    resourceSlug = "your-resource-path-here"
+    projectSlug = "your-project-name-here"
+    localesMap = HashMap<String, String>().apply {
+        // example localization matchings
+        this["main/res/values"] = "en"
+        this["greece/res/values"] = "el_GR"
+        this["colombia/res/values"] = "es_CO"
+        this["chile/res/values"] = "es_CL"
+    }
     srcDir = "${projectDir}/src"
 }
 ```
