@@ -1,57 +1,35 @@
 package co.thebeat.localization.extensions
 
-import co.thebeat.localization.LocalizationExtension
-import org.gradle.api.GradleException
-import java.io.File
-import java.util.concurrent.TimeUnit
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.MapProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Internal
 
-/**
- * Created by Chris Margonis on 18/07/2018.
- */
-open class TransifexLocalizationExtension : LocalizationExtension {
-    lateinit var auth: String
-    lateinit var resourceSlug: String
-    lateinit var localesMap: Map<String, String>
-    lateinit var srcDir: String
-    lateinit var projectSlug: String
+@Suppress("UnstableApiUsage")
+open class TransifexLocalizationExtension @JvmOverloads constructor(
+        // Needed for Gradle
+        @get:Internal
+        internal val name: String = "default",
+        objects: ObjectFactory
+) {
 
-    override fun execute() {
-        System.out.println("Locales available:")
-        val filesMap = mutableMapOf<String, String>()
-        val localesMap = localesMap
-        localesMap.forEach { folder, locale ->
-            System.out.println("Locale map: $folder - $locale")
-            val requestUrl = "https://www.transifex.com/api/2/" +
-                    "project/$projectSlug/resource/$resourceSlug/translation/$locale?mode=default&file=xml"
-            println("Downloading: $locale")
-
-            val process = ProcessBuilder(
-                "curl", "-L", "--user",
-                auth, "-X", "GET", requestUrl
-            ).start()
-            process.inputStream.reader(Charsets.UTF_8).use {
-                val text = it.readText()
-                text.trim()
-                // We need to use the 4-space indentation because the file is usually changed by humans
-                // That makes the git diff inspection easier
-                val content = text.replace(
-                    """\n(\s+)((<string.+</string>)|<!--.+-->)""".toRegex(),
-                    "\n    \$2"
-                )
-                filesMap[folder] = content
-            }
-            process.waitFor(10, TimeUnit.SECONDS)
-        }
-        val parentFolder = srcDir
-        if (filesMap.size == localesMap.size) {
-
-            localesMap.forEach { folder, _ ->
-                val stringsFile = File("$parentFolder/$folder/strings.xml")
-                stringsFile.writeText(filesMap[folder].toString())
-            }
-        } else {
-            throw GradleException("Error downloading strings")
-        }
-        println("All translations downloaded")
+    companion object {
+        const val NAME = "transifexLocalization"
     }
+
+    @get:Input
+    val apiToken: Property<String> = objects.property(String::class.java)
+
+    @get:Input
+    val resourceSlug: Property<String> = objects.property(String::class.java)
+
+    @get:Input
+    val localesMap: MapProperty<String, String> = objects.mapProperty(String::class.java, String::class.java)
+
+    @get:Input
+    val srcDir: Property<String> = objects.property(String::class.java)
+
+    @get:Input
+    val projectSlug: Property<String> = objects.property(String::class.java)
 }
