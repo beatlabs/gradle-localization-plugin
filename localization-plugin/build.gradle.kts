@@ -3,7 +3,7 @@ val junitVersion: String by extra { "5.5.1" }
 
 plugins {
     `kotlin-dsl`
-    id("com.gradle.plugin-publish") version "0.10.1"
+    id("com.gradle.plugin-publish") version "0.11.0"
     kotlin("jvm") version "1.3.61"
 }
 
