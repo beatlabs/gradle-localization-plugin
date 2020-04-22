@@ -1,19 +1,20 @@
 plugins {
-    id("co.thebeat.localization") version "0.3.6"
+    id("co.thebeat.localization") version "0.4.1"
 }
 
-val apiKey: String? by project
-val resource: String? by project
-val projectSlugConfig: String? by project
+val transifexAPIToken: String? by project
+val transifexResourceSlug: String? by project
+val transifexProjectSlug: String? by project
 
-transifexLocalization {
-    auth = apiKey ?: ""
-    resourceSlug = resource ?: ""
-    projectSlug = projectSlugConfig ?: ""
-
-    localesMap = HashMap<String, String>().apply {
-        this["main/res/localization_en"] = "en"
-        this["main/res/localization_gr"] = "el_GR"
-    }
-    srcDir = "${projectDir}/src"
+configure<co.thebeat.localization.extensions.TransifexLocalizationExtension> {
+    apiToken.set(transifexAPIToken ?: "")
+    resourceSlug.set(transifexResourceSlug ?: "")
+    projectSlug.set(transifexProjectSlug ?: "")
+    localesMap.set(
+            mapOf(
+                "main/res/localization_en" to "en",
+                "main/res/localization_gr" to "el_GR"
+            )
+    )
+    srcDir.set("$projectDir/src")
 }

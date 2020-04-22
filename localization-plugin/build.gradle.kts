@@ -1,12 +1,10 @@
-object Versions {
-    const val kotlinVersion = "1.3.50"
-    const val junitVersion = "5.5.1"
-}
+val kotlinVersion: String by extra { "1.3.61" }
+val junitVersion: String by extra { "5.5.1" }
 
 plugins {
-    `java-gradle-plugin`
-    id("com.gradle.plugin-publish") version "0.10.1"
-    kotlin("jvm") version "1.3.50"
+    `kotlin-dsl`
+    id("com.gradle.plugin-publish") version "0.11.0"
+    kotlin("jvm") version "1.3.61"
 }
 
 repositories {
@@ -16,14 +14,14 @@ repositories {
 }
 
 group = "co.thebeat.localization"
-version = "0.4.0"
+version = "0.4.1"
 
 dependencies {
     implementation(gradleApi())
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${Versions.junitVersion}")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:${Versions.junitVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
 gradlePlugin {

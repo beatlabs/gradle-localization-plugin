@@ -40,7 +40,7 @@ Add this configuration in your `app` `build.gradle` file (does not need to be in
 
 ```groovy
 transifexLocalization {
-    auth = 'your-api-key'
+    apiToken = 'your-api-key'
     resourceSlug = 'your-resource-path-here'
     projectSlug = 'your-project-name-here'
     localesMap = [:]
@@ -56,8 +56,8 @@ transifexLocalization {
 **gradle kotlin dsl**:
 
 ```kotlin
-transifexLocalization {
-    auth = "your-api-key"
+configure<co.thebeat.localization.extensions.TransifexLocalizationExtension> {
+    apiToken = "your-api-key"
     resourceSlug = "your-resource-path-here"
     projectSlug = "your-project-name-here"
     localesMap = HashMap<String, String>().apply {
