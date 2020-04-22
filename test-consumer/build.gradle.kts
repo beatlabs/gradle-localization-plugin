@@ -12,9 +12,8 @@ configure<co.thebeat.localization.extensions.TransifexLocalizationExtension> {
     projectSlug.set(transifexProjectSlug ?: "")
     localesMap.set(
             mapOf(
-                    "main/resources/localization_en" to "en",
-                    "main/resources/localization_gr" to "el",
-                    "main/resources/localization_de" to "de"
+                "main/res/localization_en" to "en",
+                "main/res/localization_gr" to "el_GR"
             )
     )
     srcDir.set("$projectDir/src")
